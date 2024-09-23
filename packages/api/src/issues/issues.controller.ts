@@ -18,8 +18,8 @@ export class IssuesController {
 
 	@Patch()
 	@ApiOperation({ summary: 'Create new issue' })
-	async update(@Body() id: string, updateIssueDto: UpdateIssueDto) {
-		return this.issuesService.update(id, updateIssueDto);
+	async update(@Body() updateIssueDto: UpdateIssueDto) {
+		return this.issuesService.update(updateIssueDto);
 	}
 
 	@Get()
