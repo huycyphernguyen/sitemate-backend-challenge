@@ -1,0 +1,15 @@
+{
+	"name": "fullstack-app-boilerplate",
+	"version": "1.0.0",
+	"description": "`pnpm` is recommended, which is an incredibly fast alternative to `npm` for installing packages. It's not required, but we highly recommend you give it a try. You can download the latest version here: https://pnpm.io/",
+	"main": "index.js",
+	"scripts": {
+		"web": "cd packages/web && pnpm run dev"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@uidotdev/usehooks": "^2.4.1",
+		"embla-carousel-autoplay": "^8.1.3"
+	}
+}

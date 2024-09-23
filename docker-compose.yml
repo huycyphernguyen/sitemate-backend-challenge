@@ -1,0 +1,63 @@
+services:
+  db:
+    image: postgres:${POSTGRES_VERSION:-12}
+    restart: always
+    environment:
+      POSTGRES_DB: nestjs
+      POSTGRES_USER: nestjs
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - fsa_network
+
+  redis:
+    image: redis:7.2.4-alpine
+    container_name: fsa_redis
+    ports:
+      - '6379:6379'
+    networks:
+      - fsa_network
+
+  # backend:
+  #   build:
+  #     context: ./packages/api
+  #   environment:
+  #     POSTGRESDB_URI: db
+  #     POSTGRESDB_PORT: 5432
+  #     POSTGRESDB_USERNAME: nestjs
+  #     POSTGRESDB_PASSWORD: mypassword
+  #   command: npm run start
+  #   restart: always
+  #   ports:
+  #     - '5000:5000'
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - fsa_network
+
+  # frontend:
+  #   build:
+  #     context: ./packages/web
+  #   environment:
+  #     NEXT_PUBLIC_API_URL: http://localhost:5000
+  #   command: npm run start
+  #   restart: always
+  #   ports:
+  #     - '3000:3000'
+  #   # volumes:
+  #   #   - dist:/web/dist
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - fsa_network
+
+volumes:
+  db-data:
+    name: db-data
+  # dist:
+
+networks:
+  fsa_network:

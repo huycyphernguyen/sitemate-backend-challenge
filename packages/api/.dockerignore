@@ -1,0 +1,5 @@
+Dockerfile
+README.md
+docker-compose.yaml
+*.example
+.vscode
