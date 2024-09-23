@@ -14,8 +14,10 @@ docker-compose up
 ```
 This will create `postgresdb` and `redis` container respectively.
 You should then be able to start the API dev process. This will start up your Nest.js server at http://localhost:5000/api
+
 ```bash
 cd packages/api
+cp .env.example env
 pnpm i
 pnpm dev
 ```
